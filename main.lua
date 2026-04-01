@@ -22,7 +22,7 @@ local E_MODEL_REFRITZ = smlua_model_util_get_id("refritz_violet_geo")      -- Lo
 local TEX_MIKE_ICON = get_texture_info("mike_violet_icon") -- Located in "textures"
 local TEX_VANESSA_ICON = get_texture_info("vanessa_violet_icon") -- Located in "textures"
 local TEX_JEREMY_ICON = get_texture_info("jeremy_violet_icon") -- Located in "textures"
-local TEX_MIKE_ICON = get_texture_info("fritz_violet_icon") -- Located in "textures"
+local TEX_FRITZ_ICON = get_texture_info("fritz_violet_icon") -- Located in "textures"
 
 local PALETTE_MIKE = {
     [PANTS]  = "000000",
@@ -143,7 +143,7 @@ CT_FRITZ = _G.charSelect.character_add(
     "D64F38",           -- Menu Color
     E_MODEL_FRITZ,       -- Character Model
     CT_MARIO,           -- Override Character
-    TEX_MIKE_ICON, -- Life Icon
+    TEX_FRITZ_ICON, -- Life Icon
     1                   -- Camera Scale
 )
 _G.charSelect.character_add_caps(E_MODEL_FRITZ, CAPTABLE_FRICK)
