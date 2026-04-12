@@ -13,16 +13,19 @@ local E_MODEL_MIKE = smlua_model_util_get_id("mike_violet_geo")      -- Located 
 local E_MODEL_VANESSA = smlua_model_util_get_id("vanessa_violet_geo")      -- Located in "actors"
 local E_MODEL_JEREMY = smlua_model_util_get_id("jeremy_violet_geo")      -- Located in "actors"
 local E_MODEL_FRITZ = smlua_model_util_get_id("fritz_violet_geo")      -- Located in "actors"
+local E_MODEL_RODNEY = smlua_model_util_get_id("rodney_violet_geo")      -- Located in "actors"
 
 local E_MODEL_REMIKE = smlua_model_util_get_id("remike_violet_geo")      -- Located in "actors"
 local E_MODEL_REVANESSA = smlua_model_util_get_id("revanessa_violet_geo")      -- Located in "actors"
 local E_MODEL_REJEREMY = smlua_model_util_get_id("rejeremy_violet_geo")      -- Located in "actors"
 local E_MODEL_REFRITZ = smlua_model_util_get_id("refritz_violet_geo")      -- Located in "actors"
+local E_MODEL_RERODNEY = smlua_model_util_get_id("rerodney_violet_geo")      -- Located in "actors"
 
 local TEX_MIKE_ICON = get_texture_info("mike_violet_icon") -- Located in "textures"
 local TEX_VANESSA_ICON = get_texture_info("vanessa_violet_icon") -- Located in "textures"
 local TEX_JEREMY_ICON = get_texture_info("jeremy_violet_icon") -- Located in "textures"
 local TEX_FRITZ_ICON = get_texture_info("fritz_violet_icon") -- Located in "textures"
+local TEX_RODNEY_ICON = get_texture_info("rodney_violet_icon") -- Located in "textures"
 
 local PALETTE_MIKE = {
     [PANTS]  = "000000",
@@ -68,6 +71,17 @@ local PALETTE_FRITZ = {
 	[EMBLEM] = "000000"
 }
 
+local PALETTE_RODNEY = {
+    [PANTS]  = "B5372E",
+    [SHIRT]  = "FFFFFF",
+    [GLOVES] = "AAAAAA",
+    [SHOES]  = "000000",
+    [HAIR]   = "B5372E",
+    [SKIN]   = "E2D43C",
+    [CAP]    = "E2D43C",
+	[EMBLEM] = "E2D43C"
+}
+
 local VOICETABLE_FRICK = {
 }
 
@@ -76,6 +90,13 @@ local CAPTABLE_FRICK = {
     wing = smlua_model_util_get_id("frick_violet_wing_cap_geo"),
     metal = smlua_model_util_get_id("frick_violet_metal_cap_geo"),
     metalwing = smlua_model_util_get_id("frick_violet_metalwing_cap_geo"),
+}
+
+local CAPTABLE_RODNEY = {
+    normal = smlua_model_util_get_id("rodney_violet_cap_geo"),
+    wing = smlua_model_util_get_id("rodney_violet_wing_cap_geo"),
+    metal = smlua_model_util_get_id("rodney_violet_metal_cap_geo"),
+    metalwing = smlua_model_util_get_id("rodney_violet_metalwing_cap_geo"),
 }
 
 -- Adds the custom character to the Character Select Menu
@@ -155,6 +176,25 @@ _G.charSelect.character_add_palette_preset(E_MODEL_REFRITZ, PALETTE_FRITZ)
 _G.charSelect.character_set_nickname(CT_FRITZ, "Fritz")
 _G.charSelect.character_set_category(CT_FRITZ, TEXT_MOD_NAME)
 
+CT_RODNEY = _G.charSelect.character_add(
+    "Rodney Redbird", -- Character Name
+    "Hey you'se! It's me- What's that? You don't know me at all!? C'mon, it's me, Rodney Redbird! Everyone should know who I am! THE top-adda-line name in animatronic entertainment turned made man in the Suntown mob! I wouldn't be takin' the job here, but this princess is a hoot! I just better hope I am gettin' paid here...", -- Description
+    "VioletSM64", -- Credits
+    "B5372E",           -- Menu Color
+    E_MODEL_RODNEY,       -- Character Model
+    CT_MARIO,           -- Override Character
+    TEX_RODNEY_ICON, -- Life Icon
+    1                   -- Camera Scale
+)
+_G.charSelect.character_add_caps(E_MODEL_RODNEY, CAPTABLE_RODNEY)
+_G.charSelect.character_add_voice(E_MODEL_RODNEY, VOICETABLE_FRICK)
+_G.charSelect.character_add_caps(E_MODEL_RERODNEY, CAPTABLE_RODNEY)
+_G.charSelect.character_add_voice(E_MODEL_RERODNEY, VOICETABLE_FRICK)
+_G.charSelect.character_add_palette_preset(E_MODEL_RODNEY, PALETTE_RODNEY)
+_G.charSelect.character_add_palette_preset(E_MODEL_RERODNEY, PALETTE_RODNEY)
+_G.charSelect.character_set_nickname(CT_RODNEY, "Rodney")
+_G.charSelect.character_set_category(CT_RODNEY, TEXT_MOD_NAME)
+
 _G.charSelect.credit_add(TEXT_MOD_NAME, "VioletSM64", "Pack")
 _G.charSelect.credit_add(TEXT_MOD_NAME, "Squishy6094", "Palette Costume Code")
 _G.charSelect.credit_add(TEXT_MOD_NAME, "SpookyRick", "Creator of Frickbear's 3")
@@ -168,6 +208,7 @@ local function update_model()
         _G.charSelect.character_edit_costume(CT_VANESSA, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_VANESSA or E_MODEL_REVANESSA)
         _G.charSelect.character_edit_costume(CT_JEREMY, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_JEREMY or E_MODEL_REJEREMY)
         _G.charSelect.character_edit_costume(CT_FRITZ, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_FRITZ or E_MODEL_REFRITZ)
+        _G.charSelect.character_edit_costume(CT_RODNEY, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_RODNEY or E_MODEL_RERODNEY)
         prevPalette = palette
     end
 end
