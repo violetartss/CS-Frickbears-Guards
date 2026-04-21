@@ -1,6 +1,44 @@
 -- name: [CS] Frickbear Guard Pack
 -- description: "Hey! This isn't Freddy Frickbear's Pizzeria!"\n\nYou can now play as Mike Schmidt and Vanessa Shelly based on their designs from Five Nights At Frickbear's 3 in this Coop Deluxe mod! Will you survive these 5 nigh- I mean... will you survive one adventure to save Princess Peach?\n\nMade by: VioletSM64\n\n\\#ff7777\\This Pack requires Character Select\nto use as a Library!
 
+--[[
+    Ideas/Todo List:
+    - Animatronics
+        - Freddy/Chica/Bonnie/Foxy
+            - Approches from specific angles, Hidden/East/West/Any(Fast), will have to be dodged when they dive at you
+        - Rodney
+            - In the corner yapping
+        - Toy Chica
+            - Hides a Cupcake in the Pause Menu, press X to get out
+        - Toy Freddy
+            - Places a Arcade Cabnit next to spawn and gives you a goal before you can collect a star
+        - Helpy
+            - Gives a popup bound to a button, button must be pressed 5 times to close window and access button again
+        - Music Man
+            - Plays random sounds to throw you off
+        - Lolbit
+            - Adds a x1.2 multiplier to 100 coin star
+        - Dreadbear (NEEDS REVIEW!!)
+            - Would slowly walk towards the player, spawning a candy bowl object that can be thrown at him to satisfy him
+        - Withered Bonnie (NEEDS REVIEW!!)
+            - Would appear and require you to crouch to emulate masking
+    - NPCS
+        - The Boss
+            - Found either at castle entrance or near mario's spawn for hacks
+            - "Hey chump! You (and your friends) look like just the people/person I need for a job!
+                All I need you to do is watch over a few animatronics while you're running around for your little stars."
+                - Accept
+                    - "Great! Your shift starts now, so get a move on loser!"
+                    - Allows animatronic NPCs to spawn for salvaging
+                - Deny/Collect Star
+                    - "I don't have time to play games, I've got a business to run"
+                    - Blocks all animatronics, basically sticking to vanilla SM64
+        - Animatronics (Salvaging)
+            - A generic NPC object for animatronics, allowing for a model, animation, ID/internal name, and voting popup,
+                would spawn randomly* (seeded) where accessable in the hub (preferably near corners)
+
+]]
+
 local TEXT_MOD_NAME = get_active_mod().name
 
 -- Stops mod from loading if Character Select isn't on, Does not need to be touched
