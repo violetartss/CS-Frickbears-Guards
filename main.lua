@@ -47,24 +47,42 @@ if not _G.charSelectExists then
     return 0
 end
 
+-- Playable Characters
 local E_MODEL_MIKE = smlua_model_util_get_id("mike_violet_geo")      -- Located in "actors"
 local E_MODEL_VANESSA = smlua_model_util_get_id("vanessa_violet_geo")      -- Located in "actors"
 local E_MODEL_JEREMY = smlua_model_util_get_id("jeremy_violet_geo")      -- Located in "actors"
 local E_MODEL_FRITZ = smlua_model_util_get_id("fritz_violet_geo")      -- Located in "actors"
+
+-- Unlockable Characters
+local E_MODEL_FREDDY = smlua_model_util_get_id("freddy_violet_geo")      -- Located in "actors"
+local E_MODEL_TOYFREDDY = smlua_model_util_get_id("toyfreddy_violet_geo")      -- Located in "actors"
+local E_MODEL_TOYCHICA = smlua_model_util_get_id("toychica_violet_geo")      -- Located in "actors"
 local E_MODEL_RODNEY = smlua_model_util_get_id("rodney_violet_geo")      -- Located in "actors"
 
+-- Playable Recolorable Models
 local E_MODEL_REMIKE = smlua_model_util_get_id("remike_violet_geo")      -- Located in "actors"
 local E_MODEL_REVANESSA = smlua_model_util_get_id("revanessa_violet_geo")      -- Located in "actors"
 local E_MODEL_REJEREMY = smlua_model_util_get_id("rejeremy_violet_geo")      -- Located in "actors"
 local E_MODEL_REFRITZ = smlua_model_util_get_id("refritz_violet_geo")      -- Located in "actors"
+
+-- Playable Recolorable Unlockables
+local E_MODEL_REFREDDY = smlua_model_util_get_id("refreddy_violet_geo")      -- Located in "actors"
+local E_MODEL_RETOYFREDDY = smlua_model_util_get_id("retoyfreddy_violet_geo")      -- Located in "actors"
+local E_MODEL_RETOYCHICA = smlua_model_util_get_id("retoychica_violet_geo")      -- Located in "actors"
 local E_MODEL_RERODNEY = smlua_model_util_get_id("rerodney_violet_geo")      -- Located in "actors"
 
+-- Icons
 local TEX_MIKE_ICON = get_texture_info("mike_violet_icon") -- Located in "textures"
 local TEX_VANESSA_ICON = get_texture_info("vanessa_violet_icon") -- Located in "textures"
 local TEX_JEREMY_ICON = get_texture_info("jeremy_violet_icon") -- Located in "textures"
 local TEX_FRITZ_ICON = get_texture_info("fritz_violet_icon") -- Located in "textures"
+
+local TEX_FREDDY_ICON = get_texture_info("freddy_violet_icon") -- Located in "textures"
+local TEX_TOYFREDDY_ICON = get_texture_info("toyfreddy_violet_icon") -- Located in "textures"
+local TEX_TOYCHICA_ICON = get_texture_info("toychica_violet_icon") -- Located in "textures"
 local TEX_RODNEY_ICON = get_texture_info("rodney_violet_icon") -- Located in "textures"
 
+-- Palettes
 local PALETTE_MIKE = {
     [PANTS]  = "000000",
     [SHIRT]  = "ABABAB",
@@ -109,6 +127,28 @@ local PALETTE_FRITZ = {
 	[EMBLEM] = "000000"
 }
 
+local PALETTE_FREDDY = {
+    [PANTS]  = "984E1E",
+    [SHIRT]  = "984E1E",
+    [GLOVES] = "984E1E",
+    [SHOES]  = "984E1E",
+    [HAIR]   = "984E1E",
+    [SKIN]   = "EAA962",
+    [CAP]    = "000000",
+	[EMBLEM] = "FFFFFF"
+}
+
+local PALETTE_TOYCHICA = {
+    [PANTS]  = "FF5593",
+    [SHIRT]  = "FFFFFF",
+    [GLOVES] = "FFCB3B",
+    [SHOES]  = "EA781B",
+    [HAIR]   = "FFCB3B",
+    [SKIN]   = "FFCB3B",
+    [CAP]    = "FFFFFF",
+	[EMBLEM] = "FFFFFF"
+}
+
 local PALETTE_RODNEY = {
     [PANTS]  = "B5372E",
     [SHIRT]  = "FFFFFF",
@@ -135,6 +175,20 @@ local CAPTABLE_RODNEY = {
     wing = smlua_model_util_get_id("rodney_violet_wing_cap_geo"),
     metal = smlua_model_util_get_id("rodney_violet_metal_cap_geo"),
     metalwing = smlua_model_util_get_id("rodney_violet_metalwing_cap_geo"),
+}
+
+local CAPTABLE_FREDDY = {
+    normal = smlua_model_util_get_id("freddy_violet_cap_geo"),
+    wing = smlua_model_util_get_id("freddy_violet_wing_cap_geo"),
+    metal = smlua_model_util_get_id("freddy_violet_metal_cap_geo"),
+    metalwing = smlua_model_util_get_id("freddy_violet_metalwing_cap_geo"),
+}
+
+local CAPTABLE_CHICA = {
+    normal = smlua_model_util_get_id("chica_violet_cap_geo"),
+    wing = smlua_model_util_get_id("chica_violet_wing_cap_geo"),
+    metal = smlua_model_util_get_id("chica_violet_metal_cap_geo"),
+    metalwing = smlua_model_util_get_id("chica_violet_metalwing_cap_geo"),
 }
 
 -- Adds the custom character to the Character Select Menu
@@ -214,6 +268,61 @@ _G.charSelect.character_add_palette_preset(E_MODEL_REFRITZ, PALETTE_FRITZ)
 _G.charSelect.character_set_nickname(CT_FRITZ, "Fritz")
 _G.charSelect.character_set_category(CT_FRITZ, TEXT_MOD_NAME)
 
+CT_FREDDY = _G.charSelect.character_add(
+    "Freddy Frickbear", -- Character Name
+    "The ringmaster behind the band, Freddy is here to bring laughs along his way to save the day, because as they always say, if you want something done right, you gotta do it yourself!", -- Description
+    "VioletSM64", -- Credits
+    "984E1E",           -- Menu Color
+    E_MODEL_FREDDY,       -- Character Model
+    CT_MARIO,           -- Override Character
+    TEX_FREDDY_ICON, -- Life Icon
+    1                   -- Camera Scale
+)
+_G.charSelect.character_add_caps(E_MODEL_FREDDY, CAPTABLE_FREDDY)
+_G.charSelect.character_add_voice(E_MODEL_FREDDY, VOICETABLE_FRICK)
+_G.charSelect.character_add_caps(E_MODEL_REFREDDY, CAPTABLE_FREDDY)
+_G.charSelect.character_add_voice(E_MODEL_REFREDDY, VOICETABLE_FRICK)
+_G.charSelect.character_add_palette_preset(E_MODEL_FREDDY, PALETTE_FREDDY)
+_G.charSelect.character_add_palette_preset(E_MODEL_REFREDDY, PALETTE_FREDDY)
+_G.charSelect.character_set_nickname(CT_FREDDY, "Freddy")
+_G.charSelect.character_set_category(CT_FREDDY, TEXT_MOD_NAME)
+
+CT_TOYFREDDY = _G.charSelect.character_add(
+    "Toy Freddy", -- Character Name
+    "Oh boy! A brand new game to play around with! Toy Freddy, the gaming extraordinaire, is ready to game on. Let's hope he doesn't fail the speedrun, or who knows what will happen!", -- Description
+    "VioletSM64", -- Credits
+    "984E1E",           -- Menu Color
+    E_MODEL_TOYFREDDY,       -- Character Model
+    CT_MARIO,           -- Override Character
+    TEX_TOYFREDDY_ICON, -- Life Icon
+    1                   -- Camera Scale
+)
+_G.charSelect.character_add_caps(E_MODEL_TOYFREDDY, CAPTABLE_FREDDY)
+_G.charSelect.character_add_voice(E_MODEL_TOYFREDDY, VOICETABLE_FRICK)
+_G.charSelect.character_add_caps(E_MODEL_RETOYFREDDY, CAPTABLE_FREDDY)
+_G.charSelect.character_add_voice(E_MODEL_RETOYFREDDY, VOICETABLE_FRICK)
+_G.charSelect.character_add_palette_preset(E_MODEL_TOYFREDDY, PALETTE_FREDDY)
+_G.charSelect.character_add_palette_preset(E_MODEL_RETOYFREDDY, PALETTE_FREDDY)
+_G.charSelect.character_set_category(CT_TOYFREDDY, TEXT_MOD_NAME)
+
+CT_TOYCHICA = _G.charSelect.character_add(
+    "Toy Chica", -- Character Name
+    "This Chicken doesn't sound much for adventures, but she does want to show herself off and take the stage... as long as her cupcake behaves!", -- Description
+    "VioletSM64", -- Credits
+    "FFCB3B",           -- Menu Color
+    E_MODEL_TOYCHICA,       -- Character Model
+    CT_MARIO,           -- Override Character
+    TEX_TOYCHICA_ICON, -- Life Icon
+    1                   -- Camera Scale
+)
+_G.charSelect.character_add_caps(E_MODEL_TOYCHICA, CAPTABLE_CHICA)
+_G.charSelect.character_add_voice(E_MODEL_TOYCHICA, VOICETABLE_FRICK)
+_G.charSelect.character_add_caps(E_MODEL_RETOYCHICA, CAPTABLE_CHICA)
+_G.charSelect.character_add_voice(E_MODEL_RETOYCHICA, VOICETABLE_FRICK)
+_G.charSelect.character_add_palette_preset(E_MODEL_TOYCHICA, PALETTE_TOYCHICA)
+_G.charSelect.character_add_palette_preset(E_MODEL_RETOYCHICA, PALETTE_TOYCHICA)
+_G.charSelect.character_set_category(CT_TOYCHICA, TEXT_MOD_NAME)
+
 CT_RODNEY = _G.charSelect.character_add(
     "Rodney Redbird", -- Character Name
     "Hey you'se! It's me- What's that? You don't know me at all!? C'mon, it's me, Rodney Redbird! Everyone should know who I am! THE top-adda-line name in animatronic entertainment turned made man in the Suntown mob! I wouldn't be takin' the job here, but this princess is a hoot! I just better hope I am gettin' paid here...", -- Description
@@ -246,6 +355,9 @@ local function update_model()
         _G.charSelect.character_edit_costume(CT_VANESSA, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_VANESSA or E_MODEL_REVANESSA)
         _G.charSelect.character_edit_costume(CT_JEREMY, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_JEREMY or E_MODEL_REJEREMY)
         _G.charSelect.character_edit_costume(CT_FRITZ, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_FRITZ or E_MODEL_REFRITZ)
+        _G.charSelect.character_edit_costume(CT_FREDDY, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_FREDDY or E_MODEL_REFREDDY)
+        _G.charSelect.character_edit_costume(CT_TOYFREDDY, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_TOYFREDDY or E_MODEL_RETOYFREDDY)
+        _G.charSelect.character_edit_costume(CT_TOYCHICA, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_TOYCHICA or E_MODEL_RETOYCHICA)
         _G.charSelect.character_edit_costume(CT_RODNEY, 1, nil, nil, nil, nil, palette == 1 and E_MODEL_RODNEY or E_MODEL_RERODNEY)
         prevPalette = palette
     end
